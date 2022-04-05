@@ -17,19 +17,18 @@ function MyApp({ Component, pageProps }) {
     <>
       {" "}
       <ChakraProvider theme={theme}>
-        {/* <UseWalletProvider
+        <UseWalletProvider
           chainId={4}
           connectors={{
             walletconnect: {
               rpcUrl:
                 "https://rinkeby.infura.io/v3/3fef06027a2246e08cd8f31ac9d7d45c",
             },
-          }}
-        > */}
+          }}>
           <NavBar />
           <Component {...pageProps} />
           <Footer />{" "}
-        {/* </UseWalletProvider> */}
+        </UseWalletProvider>
       </ChakraProvider>
     </>
   );

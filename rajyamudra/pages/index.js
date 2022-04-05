@@ -26,22 +26,22 @@ import {
   Progress,
 } from "@chakra-ui/react";
 
-// import factory from "../smart-contract/factory";
-// import web3 from "../smart-contract/web3";
-// import Campaign from "../smart-contract/campaign";
+import factory from "../ethereum-contracts/factory";
+import web3 from "../ethereum-contracts/web3";
+import Campaign from "../ethereum-contracts/campaign";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { FaEthereum } from "react-icons/fa";
 import { FcIdea, FcShare, FcMoneyTransfer } from "react-icons/fc";
 
-// export async function getServerSideProps(context) {
-//   const campaigns = await factory.methods.getDeployedCampaigns().call();
+export async function getServerSideProps(context) {
+  const campaigns = await factory.methods.getDeployedCampaigns().call();
 
-//   console.log(campaigns);
+  console.log(campaigns);
 
-//   return {
-//     props: { campaigns },
-//   };
-// }
+  return {
+    props: { campaigns },
+  };
+}
 
 const Feature = ({ title, text, icon }) => {
   return (

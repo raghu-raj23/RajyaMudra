@@ -17,7 +17,7 @@ import DarkModeSwitcher from "./DarkModeSwitcher";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 export default function NavBar() {
-  // const wallet = useWallet();
+  const wallet = useWallet();
 
   return (
     <Box>
@@ -91,7 +91,7 @@ export default function NavBar() {
               <NextLink href="/#getstarted"> Get Started</NextLink>
             </Button>
 
-            {/* {wallet.status === "connected" ? (
+            {wallet.status === "connected" ? (
               <Menu>
                 <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
                   {wallet.account.substr(0, 10) + "..."}
@@ -119,7 +119,7 @@ export default function NavBar() {
                   Connect Wallet{" "}
                 </Button>
               </div>
-            )} */}
+            )}
 
             <DarkModeSwitcher />
           </Stack>
