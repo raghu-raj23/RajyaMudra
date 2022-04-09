@@ -261,7 +261,7 @@ export default function CampaignSingle({
                       Funds Raised
                     </Text>
                     <Tooltip
-                      label="The acount of money this campaign has available for usage."
+                      label="The amount of money this campaign has available for usage."
                       bg={useColorModeValue("white", "gray.700")}
                       placement={"top"}
                       color={useColorModeValue("gray.800", "white")}

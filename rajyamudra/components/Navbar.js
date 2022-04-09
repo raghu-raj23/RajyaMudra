@@ -7,6 +7,7 @@ import {
   Container,
   Heading,
   Menu,
+  Icon,
   MenuButton,
   MenuList,
   MenuItem,
@@ -15,6 +16,8 @@ import { useWallet } from "use-wallet";
 import NextLink from "next/link";
 import DarkModeSwitcher from "./DarkModeSwitcher";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+// import Image from "next/image";
+import { FaEthereum } from "react-icons/fa";
 
 export default function NavBar() {
   const wallet = useWallet();
@@ -34,7 +37,7 @@ export default function NavBar() {
         w={"full"}
         minH={"60px"}
         boxShadow={"sm"}
-        zIndex="999"
+        zIndex="500"
         justify={"center"}
         css={{
           backdropFilter: "saturate(180%) blur(5px)",
@@ -55,17 +58,14 @@ export default function NavBar() {
                 as={"span"}
                 color={useColorModeValue("orange.400", "orange.300")}
                 position={"relative"}
-                zIndex={10}
-                _after={{
-                  content: '""',
-                  position: "absolute",
-                  left: 0,
-                  bottom: 0,
-                  w: "full",
-                  h: "30%",
-                  bg: useColorModeValue("orange.100", "orange.900"),
-                  zIndex: -1,
-                }}>
+                zIndex={10}>
+                <Icon
+                  as={FaEthereum}
+                  h={7}
+                  w={7}
+                  alignSelf={"center"}
+                  color={"yellow.500"}
+                />
                 <NextLink href="/">RajyaMudra</NextLink>
               </Box>
             </Heading>
@@ -94,7 +94,7 @@ export default function NavBar() {
             {wallet.status === "connected" ? (
               <Menu>
                 <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                  {wallet.account.substr(0, 10) + "..."}
+                  {wallet.account.substr(2, 8) + "..."}
                 </MenuButton>
                 <MenuList>
                   <MenuItem onClick={() => wallet.reset()}>

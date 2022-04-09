@@ -8,9 +8,10 @@ import {
   useColorModeValue,
   VisuallyHidden,
   Heading,
+  Icon,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin,FaEthereum } from "react-icons/fa";
 import NextLink from "next/link";
 
 const SocialButton = ({ children, label, href }) => {
@@ -61,16 +62,14 @@ export default function Footer() {
             color={useColorModeValue("orange.400", "orange.300")}
             position={"relative"}
             zIndex={10}
-            _after={{
-              content: '""',
-              position: "absolute",
-              left: 0,
-              bottom: 0,
-              w: "full",
-              h: "30%",
-              bg: useColorModeValue("orange.100", "orange.900"),
-              zIndex: -1,
-            }}>
+          >
+            <Icon
+                  as={FaEthereum}
+                  h={7}
+                  w={7}
+                  alignSelf={"center"}
+                  color={"yellow.500"}
+                />
             <NextLink href="/">RajyaMudra</NextLink>
           </Box>
         </Heading>

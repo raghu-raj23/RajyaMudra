@@ -44,6 +44,7 @@ export default function NewCampaign() {
   const [minContriInUSD, setMinContriInUSD] = useState();
   const [targetInUSD, setTargetInUSD] = useState();
   const [ETHPrice, setETHPrice] = useState(0);
+
   useAsync(async () => {
     try {
       const result = await getETHPrice();
@@ -52,6 +53,7 @@ export default function NewCampaign() {
       console.log(error);
     }
   }, []);
+
   async function onSubmit(data) {
     console.log(
       data.minimumContribution,
@@ -92,7 +94,7 @@ export default function NewCampaign() {
         <Stack spacing={8} mx={"auto"} maxW={"2xl"} py={12} px={6}>
           <Text fontSize={"lg"} color={"orange.400"}>
             <ArrowBackIcon mr={2} />
-            <NextLink href="/"> Back to Home</NextLink>
+            <NextLink href="/"> Back to Campaigns</NextLink>
           </Text>
           <Stack>
             <Heading fontSize={"4xl"}>Create a New Campaign 🎉</Heading>
@@ -102,6 +104,7 @@ export default function NewCampaign() {
             bg={useColorModeValue("white", "gray.700")}
             boxShadow={"lg"}
             p={8}>
+
             <form onSubmit={handleSubmit(onSubmit)}>
               <Stack spacing={4}>
                 <FormControl id="minimumContribution">
@@ -196,7 +199,8 @@ export default function NewCampaign() {
                         bg: "orange.500",
                       }}
                       isLoading={isSubmitting}
-                      type="submit">
+                      type="submit"
+                    >
                       Create
                     </Button>
                   ) : (
@@ -207,7 +211,8 @@ export default function NewCampaign() {
                         _hover={{
                           bg: "orange.300",
                         }}
-                        onClick={() => wallet.connect()}>
+                        onClick={() => wallet.connect()}
+                      >
                         Connect Wallet{" "}
                       </Button>
                       <Alert status="warning">
@@ -221,6 +226,7 @@ export default function NewCampaign() {
                 </Stack>
               </Stack>
             </form>
+
           </Box>
         </Stack>
       </main>

@@ -4,6 +4,7 @@ import NextLink from "next/link";
 import styles from "../styles/Home.module.css";
 import { getETHPrice, getWEIPriceInUSD } from "../utils/getETHPrice";
 import {
+  chakra,
   Heading,
   useBreakpointValue,
   useColorModeValue,
@@ -15,17 +16,17 @@ import {
   Box,
   Divider,
   Skeleton,
+  SkeletonCircle,
+  SkeletonText,
   Img,
   Icon,
-  chakra,
-  Tooltip,
   Link,
-  SkeletonCircle,
-  HStack,
+  Tooltip,
   Stack,
+  HStack,
   Progress,
 } from "@chakra-ui/react";
-
+import { BiNetworkChart } from "react-icons/bi";
 import factory from "../ethereum-contracts/factory";
 import web3 from "../ethereum-contracts/web3";
 import Campaign from "../ethereum-contracts/campaign";
@@ -43,7 +44,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-const Feature = ({ title, text, icon }) => {
+const StarterCard = ({ title, text, icon }) => {
   return (
     <Stack>
       <Flex
@@ -250,29 +251,35 @@ export default function Home({ campaigns }) {
           <Divider marginTop="4" />
           <Container py={{ base: "4", md: "12" }} maxW={"7xl"} id="getstarted">
             <HStack spacing={2}>
-              <SkeletonCircle size="4" />
+              <SkeletonCircle
+                size="4"
+                startColor="pink.500"
+                endColor="orange.500"
+              />
               <Heading as="h2" size="lg">
-                How RajyaMudra Works
+                How to Get Started with RajyaMudra?
               </Heading>
             </HStack>
 
-            <Divider marginTop="4" />
+            {/* <Divider marginTop="4" /> */}
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={8}>
-              <Feature
+              <StarterCard
                 icon={<Icon as={FcIdea} w={10} h={10} />}
                 title={"Start your Campaign"}
                 text={
                   "Provide the details for your campaign in the required fields and you are all-set for the crowd funding process. 😁"
                 }
               />
-              <Feature
-                icon={<Icon as={FcShare} w={10} h={10} />}
+              <StarterCard
+                icon={
+                  <Icon as={BiNetworkChart} color={"blue.400"} w={10} h={10} />
+                }
                 title={"Publish and Promote your Campaign"}
                 text={
                   "Publish the campaign on the platform and share your motivation with the world 🙌 and make yourself heard. 😉"
                 }
               />
-              <Feature
+              <StarterCard
                 icon={<Icon as={FcMoneyTransfer} w={10} h={10} />}
                 title={"Request and Withdraw Funds"}
                 text={
@@ -299,7 +306,11 @@ export default function Home({ campaigns }) {
         </Container>
         <Container py={{ base: "4", md: "12" }} maxW={"7xl"}>
           <HStack spacing={2}>
-            <SkeletonCircle size="4" />
+            <SkeletonCircle
+              size="4"
+              startColor="purple.500"
+              endColor="orange.500"
+            />
             <Heading as="h2" size="lg">
               Available Campaigns
             </Heading>
@@ -328,9 +339,18 @@ export default function Home({ campaigns }) {
             </SimpleGrid>
           ) : (
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={8}>
-              <Skeleton height="25rem" />
-              <Skeleton height="25rem" />
-              <Skeleton height="25rem" />
+              <Skeleton
+                height="25rem"
+                startColor="purple.500"
+                endColor="orange.500"></Skeleton>
+              <Skeleton
+                height="25rem"
+                startColor="purple.500"
+                endColor="orange.500"></Skeleton>
+              <Skeleton
+                height="25rem"
+                startColor="purple.500"
+                endColor="orange.500"></Skeleton>
             </SimpleGrid>
           )}
         </Container>
