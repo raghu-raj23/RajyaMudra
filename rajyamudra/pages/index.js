@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import styles from "../styles/Home.module.css";
 import { getETHPrice, getWEIPriceInUSD } from "../utils/getETHPrice";
+// import landing from "/landing-page.png";
 import {
   chakra,
   Heading,
@@ -19,6 +20,7 @@ import {
   SkeletonCircle,
   SkeletonText,
   Img,
+  // Image,
   Icon,
   Link,
   Tooltip,
@@ -32,7 +34,8 @@ import web3 from "../ethereum-contracts/web3";
 import Campaign from "../ethereum-contracts/campaign";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { FaEthereum } from "react-icons/fa";
-import { FcIdea, FcShare, FcMoneyTransfer } from "react-icons/fc";
+import { FcIdea, FcMoneyTransfer, FcApproval } from "react-icons/fc";
+// import Image from "next/image";
 
 export async function getServerSideProps(context) {
   const campaigns = await factory.methods.getDeployedCampaigns().call();
@@ -59,7 +62,7 @@ const StarterCard = ({ title, text, icon }) => {
         {icon}
       </Flex>
       <Text fontWeight={600}>{title}</Text>
-      <Text color={useColorModeValue("gray.500", "gray.200")}>{text}</Text>
+      <Text color={useColorModeValue("orange.500", "gray.200")}>{text}</Text>
     </Stack>
   );
 };
@@ -88,7 +91,8 @@ function CampaignCard({
         cursor="pointer"
         transition={"transform 0.3s ease"}
         _hover={{
-          transform: "translateY(-8px)",
+          // transform: "translateY(-8px)",
+          transform: "scale(1.1)",
         }}>
         <Box height="18em">
           <Img
@@ -245,29 +249,96 @@ export default function Home({ campaigns }) {
             color={useColorModeValue("gray.800", "white")}
             as="h1"
             py={4}>
-            Crowdfunding made simpler, transparent and secure using
-            <br /> Blockchain & Ethereum Smart Contracts{" "}
+            Transparency, accountability and security for your crowdfunding
+            experience{" "}
           </Heading>
+          <Text fontSize='xl' color={useColorModeValue("orange.600", "gray.200")}>
+            A decentralized platform that enables you to raise funds for your
+            project, and track the progress of your project.
+          </Text>
+          <Divider marginTop="4" />
+          <Container py={{ base: "4", md: "12" }} maxW={"7xl"} id="gettoknow">
+            <HStack spacing={2}>
+              <SkeletonCircle
+                size="4"
+                startColor="purple.500"
+                endColor="orange.500"
+              />
+              <Heading as="h2" size="lg">
+                So what exactly is RajyaMudra?
+              </Heading>
+            </HStack>
+
+            <Divider marginTop="4" />
+            {/* <SimpleGrid columns={{ base: 1, md: 2 }}> */}
+            <Flex
+              align="center"
+              justify={{
+                base: "center",
+                md: "space-around",
+                xl: "space-between",
+              }}
+              direction={{ base: "column-reverse", md: "row" }}
+              wrap="no-wrap"
+              minH="70vh"
+              px={8}
+              mb={16}>
+              <Stack
+                spacing={4}
+                w={{ base: "80%", md: "40%" }}
+                align={["center", "center", "flex-start", "flex-start"]}>
+                <Text
+                  fontSize='xl'
+                  color={useColorModeValue("orange.500", "gray.200")}>
+                  RajyaMudra is an initiative to build a platform accessible to
+                  all and where start-ups, organizations and people who require
+                  help can raise funds without fighting the hassales of present
+                  day crowdfunding.
+                  <br />
+                  <em>RajyaMudra</em> believes in decentralized power
+                  distribution where potential extrinsic barriers for the
+                  initiatives can be reduced to minimum.
+                  <br /> Our crowdfunding process is governed by smart contracts
+                  which will help improve tracability and reduces chances of
+                  fraud.{" "}
+                </Text>
+              </Stack>
+              <Box
+                w={{ base: "80%", sm: "60%", md: "50%" }}
+                mb={{ base: 12, md: 0 }}>
+                {/* TODO: Make this change every X secs */}
+                <Img
+                  src="/landing-page.png"
+                  height="auto"
+                  width="auto"
+                  rounded="1rem"
+                  shadow="2xl"
+                  alt="Landing page"
+                />
+              </Box>
+            </Flex>
+            {/* </SimpleGrid> */}
+          </Container>
           <Divider marginTop="4" />
           <Container py={{ base: "4", md: "12" }} maxW={"7xl"} id="getstarted">
             <HStack spacing={2}>
               <SkeletonCircle
                 size="4"
-                startColor="pink.500"
+                startColor="purple.500"
                 endColor="orange.500"
               />
               <Heading as="h2" size="lg">
-                How to Get Started with RajyaMudra?
+                How do I get Started with RajyaMudra?
               </Heading>
             </HStack>
 
-            {/* <Divider marginTop="4" /> */}
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={8}>
+            <Divider marginTop="4" />
+            <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10} py={8}>
               <StarterCard
                 icon={<Icon as={FcIdea} w={10} h={10} />}
                 title={"Start your Campaign"}
                 text={
-                  "Provide the details for your campaign in the required fields and you are all-set for the crowd funding process. 😁"
+                  "Provide the details for your campaign in the required fields and you are ready for the crowd funding process. 😁"
                 }
               />
               <StarterCard
@@ -281,9 +352,16 @@ export default function Home({ campaigns }) {
               />
               <StarterCard
                 icon={<Icon as={FcMoneyTransfer} w={10} h={10} />}
-                title={"Request and Withdraw Funds"}
+                title={"Request to Withdraw Funds"}
                 text={
-                  "Once you have raised funds, you can make a withdrawal request. You can withdraw funds from the capaign when 50% of the contributors approve your request. 💰"
+                  "You feel you need the raised money for usage? Get your funds by initiating a withdraw request and let your contributors vote."
+                }
+              />
+              <StarterCard
+                icon={<Icon as={FcApproval} w={10} h={10} />}
+                title={"Get your request Approved"}
+                text={
+                  "Once 50% of the contributors approve your withdrawal request, you can finalize the request and withdraw the funds. 💰"
                 }
               />
             </SimpleGrid>

@@ -4,11 +4,14 @@ import { UseWalletProvider } from "use-wallet";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "@fontsource/roboto";
+import "@fontsource/bebas-neue";
+import "@fontsource/barlow";
+import "@fontsource/montserrat";
 
 const theme = extendTheme({
   fonts: {
-    heading: "Roboto",
-    body: "Roboto",
+    heading: "Bebas Neue, sans-serif",
+    body: "Montserrat, sans-serif",
   },
 });
 

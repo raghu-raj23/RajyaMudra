@@ -11,7 +11,7 @@ import {
   Icon,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { FaGithub, FaLinkedin,FaEthereum } from "react-icons/fa";
+import { FaGithub, FaLinkedin,FaEthereum, FaHome } from "react-icons/fa";
 import NextLink from "next/link";
 
 const SocialButton = ({ children, label, href }) => {
@@ -44,45 +44,6 @@ export default function Footer() {
     <Box
       bg={useColorModeValue("gray.50", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}>
-      <Container
-        as={Stack}
-        maxW={"6xl"}
-        py={4}
-        spacing={4}
-        justify={"center"}
-        align={"center"}>
-        <Heading
-          textAlign={useBreakpointValue({ base: "center", md: "left" })}
-          fontFamily={"heading"}
-          color={useColorModeValue("orange.800", "white")}
-          as="h2"
-          size="lg">
-          <Box
-            as={"span"}
-            color={useColorModeValue("orange.400", "orange.300")}
-            position={"relative"}
-            zIndex={10}
-          >
-            <Icon
-                  as={FaEthereum}
-                  h={7}
-                  w={7}
-                  alignSelf={"center"}
-                  color={"yellow.500"}
-                />
-            <NextLink href="/">RajyaMudra</NextLink>
-          </Box>
-        </Heading>
-        <Stack direction={"row"} spacing={6}>
-          <NextLink href="/">Home</NextLink>
-          <Link href={"https://github.com/raghu-raj23/RajyaMudra"} isExternal>
-            Github
-          </Link>
-          <Link href={"mailto:raghuraj.muni@gmail.com"} isExternal>
-            Contact
-          </Link>
-        </Stack>
-      </Container>
 
       <Box
         borderTopWidth={1}
@@ -99,6 +60,11 @@ export default function Footer() {
           <Text>Made with ❤️ by Raghuraj, Karan</Text>
 
           <Stack direction={"row"} spacing={6}>
+          <SocialButton
+              label={"Home"}
+              href={"/"}>
+              <FaHome />
+            </SocialButton>
             <SocialButton
               label={"Github"}
               href={"https://github.com/raghu-raj23"}>
