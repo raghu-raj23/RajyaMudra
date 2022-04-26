@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 import styles from "../styles/Home.module.css";
-import { getETHPrice, getWEIPriceInUSD } from "../utils/getETHPrice";
+import { getETHPrice, getWEIPriceInUSD } from "../../utils/getEthPrice";
 // import landing from "/landing-page.png";
 import {
   chakra,
