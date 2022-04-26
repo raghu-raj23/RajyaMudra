@@ -10,7 +10,7 @@ import "@fontsource/montserrat";
 
 const theme = extendTheme({
   fonts: {
-    heading: "Bebas Neue, sans-serif",
+    heading: "Barlow, Bebas Neue, sans-serif",
     body: "Montserrat, sans-serif",
   },
 });
