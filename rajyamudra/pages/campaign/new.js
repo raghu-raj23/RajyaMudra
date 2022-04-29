@@ -104,7 +104,6 @@ export default function NewCampaign() {
             bg={useColorModeValue("white", "gray.700")}
             boxShadow={"lg"}
             p={8}>
-
             <form onSubmit={handleSubmit(onSubmit)}>
               <Stack spacing={4}>
                 <FormControl id="minimumContribution">
@@ -199,8 +198,7 @@ export default function NewCampaign() {
                         bg: "orange.500",
                       }}
                       isLoading={isSubmitting}
-                      type="submit"
-                    >
+                      type="submit">
                       Create
                     </Button>
                   ) : (
@@ -211,8 +209,7 @@ export default function NewCampaign() {
                         _hover={{
                           bg: "orange.300",
                         }}
-                        onClick={() => wallet.connect()}
-                      >
+                        onClick={() => wallet.connect()}>
                         Connect Wallet{" "}
                       </Button>
                       <Alert status="warning">
@@ -226,7 +223,6 @@ export default function NewCampaign() {
                 </Stack>
               </Stack>
             </form>
-
           </Box>
         </Stack>
       </main>

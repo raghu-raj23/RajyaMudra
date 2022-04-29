@@ -15,6 +15,7 @@
     "@emotion/styled": "^11",
     "@fontsource/barlow": "^4.5.6",
     "@fontsource/bebas-neue": "^4.5.6",
+    "@fontsource/inter": "^4.5.7",
     "@fontsource/montserrat": "^4.5.7",
     "@fontsource/roboto": "^4.5.5",
     "dotenv": "^8.2.0",

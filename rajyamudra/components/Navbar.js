@@ -16,7 +16,6 @@ import { useWallet } from "use-wallet";
 import NextLink from "next/link";
 import DarkModeSwitcher from "./DarkModeSwitcher";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-// import Image from "next/image";
 import { FaEthereum } from "react-icons/fa";
 
 export default function NavBar() {
@@ -84,14 +83,14 @@ export default function NavBar() {
               display={{ base: "none", md: "inline-flex" }}>
               <NextLink href="/campaign/new">Start a Campaign</NextLink>
             </Button>
-            <Button
+            {/* <Button
               fontSize={"md"}
               fontWeight={600}
               _hover={{ color: "orange.500" }}
               variant={"link"}
               display={{ base: "none", md: "inline-flex" }}>
               <NextLink href="/#gettoknow"> Get To Know</NextLink>
-            </Button>
+            </Button> */}
             <Button
               fontSize={"md"}
               fontWeight={600}
