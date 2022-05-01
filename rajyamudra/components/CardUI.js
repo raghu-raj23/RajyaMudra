@@ -45,7 +45,6 @@ export function CampaignCard({
   name,
   description,
   creatorId,
-  // imageURL,
   id,
   balance,
   target,
@@ -163,11 +162,10 @@ export function StatsCard(props) {
       py={"5"}
       shadow={"sm"}
       border={"1px solid"}
-      borderColor={"gray.500"}
       rounded={"lg"}
       transition={"transform 0.3s ease"}
       _hover={{
-        transform: "translateY(-5px)",
+        transform: "scale(1.1)",
       }}>
       <Tooltip
         label={info}

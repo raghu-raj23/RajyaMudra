@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import web3 from "../ethereum-contracts/web3";
 import Campaign from "../ethereum-contracts/campaign";
-import { getETHPrice, getWEIPriceInUSD } from "../utils/getETHPrice";
+import { getWEIPriceInUSD } from "../utils/getETHPrice";
 import {
   useColorModeValue,
   Button,
   Tooltip,
   Tr,
-  Th,
   Td,
   HStack,
   Link,

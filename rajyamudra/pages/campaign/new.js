@@ -59,7 +59,6 @@ export default function NewCampaign() {
       data.minimumContribution,
       data.campaignName,
       data.description,
-      // data.imageUrl,
       data.target
     );
     try {
@@ -69,7 +68,6 @@ export default function NewCampaign() {
           web3.utils.toWei(data.minimumContribution, "ether"),
           data.campaignName,
           data.description,
-          // data.imageUrl,
           web3.utils.toWei(data.target, "ether")
         )
         .send({
@@ -120,14 +118,6 @@ export default function NewCampaign() {
                     isDisabled={isSubmitting}
                   />
                 </FormControl>
-                {/* <FormControl id="imageUrl">
-                  <FormLabel>Image URL</FormLabel>
-                  <Input
-                    {...register("imageUrl", { required: false })}
-                    isDisabled={isSubmitting}
-                    type="url"
-                  />
-                </FormControl> */}
                 <FormControl id="minimumContribution">
                   <FormLabel>Minimum Contribution Amount</FormLabel>
                   <InputGroup>
@@ -179,7 +169,6 @@ export default function NewCampaign() {
                 {errors.minimumContribution ||
                 errors.name ||
                 errors.description ||
-                // errors.imageUrl ||
                 errors.target ? (
                   <Alert status="error">
                     <AlertIcon />

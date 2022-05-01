@@ -63,9 +63,7 @@ export async function getServerSideProps({ params }) {
       manager: summary[4],
       name: summary[5],
       description: summary[6],
-      // image: summary[7],
       target: summary[7],
-      // target: summary[8],
       ETHPrice,
     },
   };
@@ -80,7 +78,6 @@ export default function CampaignSingle({
   manager,
   name,
   description,
-  // image,
   target,
   ETHPrice,
 }) {
@@ -225,17 +222,6 @@ export default function CampaignSingle({
                       {" "}
                       Funds Raised
                     </Text>
-                    {/* <Tooltip
-                      label="The amount of money this campaign has raised."
-                      bg={useColorModeValue("white", "gray.700")}
-                      placement={"top"}
-                      color={useColorModeValue("gray.800", "white")}
-                      fontSize={"1em"}
-                      px="4">
-                      <InfoIcon
-                        color={useColorModeValue("orange.800", "white")}
-                      />
-                    </Tooltip> */}
                   </StatLabel>
                   <StatNumber>
                     <Box
@@ -291,15 +277,13 @@ export default function CampaignSingle({
                   lineHeight={1.1}
                   fontSize={{ base: "2xl", sm: "3xl" }}
                   color={useColorModeValue("orange.600", "orange.200")}>
-                  Contribute Now!
+                  Contribute Here 👇
                 </Heading>
 
                 <Box mt={10}>
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <FormControl id="value">
-                      <FormLabel>
-                        Amount in Ether you want to contribute
-                      </FormLabel>
+                      <FormLabel>Enter amount in Ether to contribute</FormLabel>
                       <InputGroup>
                         {" "}
                         <Input
@@ -377,11 +361,6 @@ export default function CampaignSingle({
                     View Withdrawal Requests
                   </Button>
                 </NextLink>
-                {/* <Text fontSize={"sm"}>
-                  * The usage of the funds can be tracked by you & if you have
-                  contributed to the campaign you can also approve the
-                  withdrawal requests!!!
-                </Text> */}
               </Stack>
             </Stack>
           </Container>

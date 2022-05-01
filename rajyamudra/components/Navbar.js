@@ -75,24 +75,6 @@ export default function NavBar() {
             direction={"row"}
             spacing={6}
             display={{ base: "none", md: "flex" }}>
-            {/* <Button
-              fontSize={"md"}
-              fontWeight={600}
-              variant={"link"}
-              _hover={{ color: "orange.500" }}
-              display={{ base: "none", md: "inline-flex" }}>
-              <NextLink href="/campaign/new">Start a Campaign</NextLink>
-            </Button> */}
-
-            
-            {/* <Button
-              fontSize={"md"}
-              fontWeight={600}
-              _hover={{ color: "orange.500" }}
-              variant={"link"}
-              display={{ base: "none", md: "inline-flex" }}>
-              <NextLink href="/#gettoknow"> Get To Know</NextLink>
-            </Button> */}
             <Button
               fontSize={"md"}
               fontWeight={600}
