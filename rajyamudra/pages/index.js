@@ -99,9 +99,7 @@ export default function Home({ campaigns }) {
             project, and track the progress of your project.
           </Text>
           <Divider marginTop="4" /> */}
-
           <IndexCTA />
-
           {/* <Container py={{ base: "4", md: "12" }} maxW={"7xl"} id="gettoknow">
             <HStack spacing={2}>
               <SkeletonCircle
@@ -161,8 +159,6 @@ export default function Home({ campaigns }) {
               </Box>
             </Flex>
           </Container> */}
-
-          
           <Container py={{ base: "4", md: "12" }} maxW={"7xl"} id="getstarted">
             <HStack spacing={2}>
               <SkeletonCircle
@@ -208,10 +204,8 @@ export default function Home({ campaigns }) {
                 }
               />
             </SimpleGrid>
-
           </Container>
         </Container>
-
 
         <Container py={{ base: "4", md: "12" }} maxW={"7xl"}>
           <HStack spacing={2}>
@@ -221,7 +215,7 @@ export default function Home({ campaigns }) {
               endColor="orange.500"
             />
             <Heading as="h2" size="lg">
-              Available Campaigns
+              Campaigns You Can Contribute
             </Heading>
           </HStack>
 
@@ -229,17 +223,17 @@ export default function Home({ campaigns }) {
 
           {campaignList.length > 0 ? (
             <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} py={8}>
-              {campaignList.map((el, i) => {
+              {campaignList.map((camp, i) => {
                 return (
                   <div key={i}>
                     <CampaignCard
-                      name={el[5]}
-                      description={el[6]}
-                      creatorId={el[4]}
-                      imageURL={el[7]}
+                      name={camp[5]}
+                      description={camp[6]}
+                      creatorId={camp[4]}
+                      // imageURL={camp[7]}
                       id={campaigns[i]}
-                      target={el[8]}
-                      balance={el[1]}
+                      target={camp[7]}
+                      balance={camp[1]}
                       ethPrice={ethPrice}
                     />
                   </div>
@@ -251,19 +245,43 @@ export default function Home({ campaigns }) {
               <Skeleton
                 height="25rem"
                 startColor="purple.500"
-                endColor="orange.500"></Skeleton>
+                endColor="orange.500">
+                <SkeletonText
+                  startColor="whiteAlpha.500"
+                  endColor="blackAlpha.500"
+                  mt="4"
+                  noOfLines={4}
+                  spacing="4"
+                />
+              </Skeleton>
               <Skeleton
                 height="25rem"
                 startColor="purple.500"
-                endColor="orange.500"></Skeleton>
+                endColor="orange.500">
+                <SkeletonText
+                  startColor="whiteAlpha.500"
+                  endColor="blackAlpha.500"
+                  mt="4"
+                  noOfLines={4}
+                  spacing="4"
+                />
+              </Skeleton>
               <Skeleton
                 height="25rem"
                 startColor="purple.500"
-                endColor="orange.500"></Skeleton>
+                endColor="orange.500">
+                <SkeletonText
+                  startColor="whiteAlpha.500"
+                  endColor="blackAlpha.500"
+                  mt="4"
+                  noOfLines={4}
+                  spacing="4"
+                />
+              </Skeleton>
             </SimpleGrid>
           )}
         </Container>
-        <Divider marginTop="4" />
+        {/* <Divider marginTop="4" />
 
         <Heading as="h6" size="md" mt="8">
           For any queries raise an issue on{" "}
@@ -282,7 +300,7 @@ export default function Home({ campaigns }) {
             isExternal>
             the Github Repo <ExternalLinkIcon mx="2px" />
           </Link>{" "}
-        </Heading>
+        </Heading> */}
       </main>
     </div>
   );

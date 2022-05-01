@@ -4,14 +4,10 @@ import { UseWalletProvider } from "use-wallet";
 import NavBar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "@fontsource/roboto";
-// import "@fontsource/bebas-neue";
-// import "@fontsource/barlow";
-// import "@fontsource/montserrat";
 import "@fontsource/inter"
 
 const theme = extendTheme({
   fonts: {
-    // heading: "Barlow, Bebas Neue, sans-serif",
     heading: "Inter, sans-serif",
     body: "Inter, sans-serif",
   },

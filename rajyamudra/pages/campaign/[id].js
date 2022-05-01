@@ -35,8 +35,8 @@ import {
   CloseButton,
   FormHelperText,
   Link,
-  CircularProgress, 
-  CircularProgressLabel
+  CircularProgress,
+  CircularProgressLabel,
 } from "@chakra-ui/react";
 import { StatsCard } from "../../components/CardUI";
 import { InfoIcon, ExternalLinkIcon } from "@chakra-ui/icons";
@@ -63,8 +63,9 @@ export async function getServerSideProps({ params }) {
       manager: summary[4],
       name: summary[5],
       description: summary[6],
-      image: summary[7],
-      target: summary[8],
+      // image: summary[7],
+      target: summary[7],
+      // target: summary[8],
       ETHPrice,
     },
   };
@@ -79,7 +80,7 @@ export default function CampaignSingle({
   manager,
   name,
   description,
-  image,
+  // image,
   target,
   ETHPrice,
 }) {
@@ -136,7 +137,7 @@ export default function CampaignSingle({
                 <AlertIcon />
                 <AlertDescription mr={2}>
                   {" "}
-                  Thank You for your Contribution 🙏
+                  Thank You for your Contribution 🤗
                 </AlertDescription>
                 <CloseButton
                   position="absolute"
@@ -182,28 +183,29 @@ export default function CampaignSingle({
                       minimumContribution
                     )})`}
                     info={
-                      "You must contribute at least this much in Wei ( 1 ETH = 10 ^ 18 Wei) to become an approver"
+                      "This is the minimum contribution that is required to be made to this campaign."
                     }
                   />
                   <StatsCard
                     title={"Wallet Address of Campaign Creator"}
                     stat={manager}
+                    isTruncated
                     info={
-                      "The Campaign Creator created the campaign and can create requests to withdraw money."
+                      "Address of the campaign creator and to where money will get withdrawed."
                     }
                   />
                   <StatsCard
                     title={"Number of Requests"}
                     stat={requestsCount}
                     info={
-                      "A request tries to withdraw money from the contract. Requests must be approved by approvers"
+                      "Number of requests made by the campaign creator to withdraw money."
                     }
                   />
                   <StatsCard
                     title={"Number of Approvers"}
                     stat={approversCount}
                     info={
-                      "Number of people who have already donated to this campaign"
+                      "Number of people who have already contributed to this campaign"
                     }
                   />
                 </SimpleGrid>
@@ -223,8 +225,8 @@ export default function CampaignSingle({
                       {" "}
                       Funds Raised
                     </Text>
-                    <Tooltip
-                      label="The amount of money this campaign has available for usage."
+                    {/* <Tooltip
+                      label="The amount of money this campaign has raised."
                       bg={useColorModeValue("white", "gray.700")}
                       placement={"top"}
                       color={useColorModeValue("gray.800", "white")}
@@ -233,7 +235,7 @@ export default function CampaignSingle({
                       <InfoIcon
                         color={useColorModeValue("orange.800", "white")}
                       />
-                    </Tooltip>
+                    </Tooltip> */}
                   </StatLabel>
                   <StatNumber>
                     <Box
@@ -271,6 +273,7 @@ export default function CampaignSingle({
                     <Progress
                       colorScheme="orange"
                       size="sm"
+                      hasStripe
                       value={web3.utils.fromWei(balance, "ether")}
                       max={web3.utils.fromWei(target, "ether")}
                       mt={4}
@@ -356,7 +359,7 @@ export default function CampaignSingle({
               </Stack>
 
               <Stack
-                bg={useColorModeValue("white", "gray.700")}
+                bg={useColorModeValue("gray.100", "gray.800")}
                 boxShadow={"lg"}
                 rounded={"xl"}
                 p={{ base: 4, sm: 6, md: 8 }}
@@ -365,20 +368,20 @@ export default function CampaignSingle({
                   <Button
                     fontFamily={"heading"}
                     w={"full"}
-                    bgGradient="linear(to-r, orange.400,green.400)"
+                    bgGradient="linear(to-r, orange.400,cyan.400)"
                     color={"white"}
                     _hover={{
-                      bgGradient: "linear(to-r, orange.400,blue.400)",
+                      bgGradient: "linear(to-r, orange.400,pink.400)",
                       boxShadow: "xl",
                     }}>
                     View Withdrawal Requests
                   </Button>
                 </NextLink>
-                <Text fontSize={"sm"}>
+                {/* <Text fontSize={"sm"}>
                   * The usage of the funds can be tracked by you & if you have
                   contributed to the campaign you can also approve the
                   withdrawal requests!!!
-                </Text>
+                </Text> */}
               </Stack>
             </Stack>
           </Container>

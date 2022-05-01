@@ -87,7 +87,7 @@ export default function NewRequest() {
             </NextLink>
           </Text>
           <Stack>
-            <Heading fontSize={"4xl"}>Create a Withdrawal Request 💸</Heading>
+            <Heading fontSize={"4xl"}>Create Withdrawal Request 🪙</Heading>
           </Stack>
           <Box
             rounded={"lg"}
@@ -127,7 +127,7 @@ export default function NewRequest() {
 
                 <FormControl id="recipient">
                   <FormLabel htmlFor="recipient">
-                    Recipient Ethereum Wallet Address
+                    Recipient Wallet Address
                   </FormLabel>
                   <Input
                     name="recipient"
@@ -178,7 +178,8 @@ export default function NewRequest() {
                       <Alert status="warning">
                         <AlertIcon />
                         <AlertDescription mr={2}>
-                          Please Connect Your Wallet First to Create a Campaign
+                          Please Connect Your Wallet First to Create a
+                          Withdrawal Request
                         </AlertDescription>
                       </Alert>
                     </Stack>

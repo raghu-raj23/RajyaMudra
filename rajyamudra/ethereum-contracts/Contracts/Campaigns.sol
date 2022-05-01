@@ -4,8 +4,9 @@ pragma solidity ^0.4.17;
 contract CampaignFactory {
     address[] public deployedCampaigns;
 
-    function createCampaign(uint minimum,string name,string description,string image,uint target) public {
-        address newCampaign = new Campaign(minimum, msg.sender,name,description,image,target);
+    // function createCampaign(uint minimum,string name,string description,string image,uint target) public {
+    function createCampaign(uint minimum,string name,string description,uint target) public {
+        address newCampaign = new Campaign(minimum, msg.sender,name,description,target);
         deployedCampaigns.push(newCampaign);
     }
 
@@ -30,7 +31,7 @@ contract Campaign {
   uint public minimunContribution;
   string public CampaignName;
   string public CampaignDescription;
-  string public imageUrl;
+  // string public imageUrl;
   uint public targetToAchieve;
   address[] public contributers;
   mapping(address => bool) public approvers;
@@ -38,21 +39,22 @@ contract Campaign {
 
 
   modifier restricted() {
-      require(msg.sender == manager);
+      require(msg.sender == manager, "Only the manager can perform this action");
       _;
   }
 
-  constructor(uint minimun, address creator,string name,string description,string image,uint target) public {
+  // constructor(uint minimun, address creator,string name,string description,string image,uint target) public {
+  constructor(uint minimun, address creator,string name,string description,uint target) public {
       manager = creator;
       minimunContribution = minimun;
       CampaignName=name;
       CampaignDescription=description;
-      imageUrl=image;
+      // imageUrl=image;
       targetToAchieve=target;
   }
 
   function contibute() public payable {
-      require(msg.value > minimunContribution );
+      require(msg.value >= minimunContribution,"Contribution is less than the minimun");
 
       contributers.push(msg.sender);
       if(approvers[msg.sender]!= true){
@@ -74,16 +76,16 @@ contract Campaign {
   }
 
   function approveRequest(uint index) public {
-      require(approvers[msg.sender]);
-      require(!requests[index].approvals[msg.sender]);
+      require(approvers[msg.sender],"You must be an approver to approve a request");
+      require(!requests[index].approvals[msg.sender],"You have already approved this request");
 
       requests[index].approvals[msg.sender] = true;
       requests[index].approvalCount++;
   }
 
   function finalizeRequest(uint index) public restricted{
-      require(requests[index].approvalCount > (approversCount / 2));
-      require(!requests[index].complete);
+      require(requests[index].approvalCount > (approversCount / 2),"Insufficient approvals to finalize request");
+      require(!requests[index].complete,"Request already finalized");
 
       requests[index].recipient.transfer(requests[index].value);
       requests[index].complete = true;
@@ -91,7 +93,8 @@ contract Campaign {
   }
 
 
-    function getSummary() public view returns (uint,uint,uint,uint,address,string,string,string,uint) {
+    // function getSummary() public view returns (uint,uint,uint,uint,address,string,string,string,uint) {
+    function getSummary() public view returns (uint,uint,uint,uint,address,string,string,uint) {
         return(
             minimunContribution,
             address(this).balance,
@@ -100,7 +103,7 @@ contract Campaign {
             manager,
             CampaignName,
             CampaignDescription,
-            imageUrl,
+            // imageUrl,
             targetToAchieve
           );
     }

@@ -29,6 +29,7 @@ export const RequestRow = ({
   const [loadingApprove, setLoadingApprove] = useState(false);
   const [errorMessageFinalize, setErrorMessageFinalize] = useState();
   const [loadingFinalize, setLoadingFinalize] = useState(false);
+
   const onApprove = async () => {
     setLoadingApprove(true);
     try {
@@ -68,7 +69,7 @@ export const RequestRow = ({
           ? useColorModeValue("orange.100", "orange.700")
           : useColorModeValue("gray.100", "gray.700")
       }
-      opacity={request.complete ? "0.4" : "1"}>
+      opacity={request.complete ? "0.5" : "1"}>
       <Td>{id} </Td>
       <Td>{request.description}</Td>
       <Td isNumeric>
@@ -85,7 +86,7 @@ export const RequestRow = ({
         </Link>
       </Td>
       <Td>
-        {request.approvalCount}/{approversCount}
+        {request.approvalCount} of {approversCount}
       </Td>
       <Td>
         <HStack spacing={2}>
@@ -102,7 +103,7 @@ export const RequestRow = ({
           </Tooltip>
           {request.complete ? (
             <Tooltip
-              label="This Request has been finalized and withdrawn to the recipient,it may then have less no of approvers"
+              label="Request is finalized and withdrawn"
               bg={useColorModeValue("white", "gray.700")}
               placement={"top"}
               color={useColorModeValue("gray.800", "white")}
@@ -142,7 +143,7 @@ export const RequestRow = ({
         </Tooltip>
         {request.complete ? (
           <Tooltip
-            label="This Request has been finalized and withdrawn to the recipient,it may then have less no of approvers"
+            label="Request is finalized and withdrawn"
             bg={useColorModeValue("white", "gray.700")}
             placement={"top"}
             color={useColorModeValue("gray.800", "white")}
@@ -167,7 +168,7 @@ export const RequestRow = ({
             </Button>
 
             <Tooltip
-              label="This Request is ready to be Finalized because it has been approved by 50% Approvers"
+              label="Request ready to be finalized"
               bg={useColorModeValue("white", "gray.700")}
               placement={"top"}
               color={useColorModeValue("gray.800", "white")}

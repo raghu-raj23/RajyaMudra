@@ -59,7 +59,7 @@ export default function NewCampaign() {
       data.minimumContribution,
       data.campaignName,
       data.description,
-      data.imageUrl,
+      // data.imageUrl,
       data.target
     );
     try {
@@ -69,7 +69,7 @@ export default function NewCampaign() {
           web3.utils.toWei(data.minimumContribution, "ether"),
           data.campaignName,
           data.description,
-          data.imageUrl,
+          // data.imageUrl,
           web3.utils.toWei(data.target, "ether")
         )
         .send({
@@ -101,11 +101,33 @@ export default function NewCampaign() {
           </Stack>
           <Box
             rounded={"lg"}
-            bg={useColorModeValue("white", "gray.700")}
+            bg={useColorModeValue("cyan.100", "cyan.800")}
             boxShadow={"lg"}
             p={8}>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Stack spacing={4}>
+                <FormControl id="campaignName">
+                  <FormLabel>Campaign Name</FormLabel>
+                  <Input
+                    {...register("campaignName", { required: true })}
+                    isDisabled={isSubmitting}
+                  />
+                </FormControl>
+                <FormControl id="description">
+                  <FormLabel>Campaign Description</FormLabel>
+                  <Textarea
+                    {...register("description", { required: true })}
+                    isDisabled={isSubmitting}
+                  />
+                </FormControl>
+                {/* <FormControl id="imageUrl">
+                  <FormLabel>Image URL</FormLabel>
+                  <Input
+                    {...register("imageUrl", { required: false })}
+                    isDisabled={isSubmitting}
+                    type="url"
+                  />
+                </FormControl> */}
                 <FormControl id="minimumContribution">
                   <FormLabel>Minimum Contribution Amount</FormLabel>
                   <InputGroup>
@@ -126,28 +148,6 @@ export default function NewCampaign() {
                       ~$ {getETHPriceInUSD(ETHPrice, minContriInUSD)}
                     </FormHelperText>
                   ) : null}
-                </FormControl>
-                <FormControl id="campaignName">
-                  <FormLabel>Campaign Name</FormLabel>
-                  <Input
-                    {...register("campaignName", { required: true })}
-                    isDisabled={isSubmitting}
-                  />
-                </FormControl>
-                <FormControl id="description">
-                  <FormLabel>Campaign Description</FormLabel>
-                  <Textarea
-                    {...register("description", { required: true })}
-                    isDisabled={isSubmitting}
-                  />
-                </FormControl>
-                <FormControl id="imageUrl">
-                  <FormLabel>Image URL</FormLabel>
-                  <Input
-                    {...register("imageUrl", { required: true })}
-                    isDisabled={isSubmitting}
-                    type="url"
-                  />
                 </FormControl>
                 <FormControl id="target">
                   <FormLabel>Target Amount</FormLabel>
@@ -179,7 +179,7 @@ export default function NewCampaign() {
                 {errors.minimumContribution ||
                 errors.name ||
                 errors.description ||
-                errors.imageUrl ||
+                // errors.imageUrl ||
                 errors.target ? (
                   <Alert status="error">
                     <AlertIcon />

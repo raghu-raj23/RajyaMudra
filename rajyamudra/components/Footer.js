@@ -29,7 +29,7 @@ const SocialButton = ({ children, label, href }) => {
       justifyContent={"center"}
       transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue("blackAlpha.300", "whiteAlpha.300"),
+        bg: useColorModeValue("orange.300", "orange.300"),
       }}
       target="_blank"
       rel="noopener noreferrer">
@@ -42,7 +42,7 @@ const SocialButton = ({ children, label, href }) => {
 export default function Footer() {
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
+      bg={useColorModeValue("gray.100", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}>
 
       <Box

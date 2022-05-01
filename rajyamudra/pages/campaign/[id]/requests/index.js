@@ -355,7 +355,7 @@ export default function Requests({
                     _hover={{
                       bg: "orange.300",
                     }}>
-                    Add Withdrawal Request
+                    Create Withdrawal Request
                   </Button>
                 </NextLink>
               </Box>

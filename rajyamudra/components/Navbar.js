@@ -39,7 +39,7 @@ export default function NavBar() {
         zIndex="500"
         justify={"center"}
         css={{
-          backdropFilter: "saturate(180%) blur(5px)",
+          backdropFilter: "saturate(180%) blur(25px)",
           backgroundColor: useColorModeValue(
             "rgba(255, 255, 255, 0.8)",
             "rgba(26, 32, 44, 0.8)"
@@ -75,14 +75,16 @@ export default function NavBar() {
             direction={"row"}
             spacing={6}
             display={{ base: "none", md: "flex" }}>
-            <Button
+            {/* <Button
               fontSize={"md"}
               fontWeight={600}
               variant={"link"}
               _hover={{ color: "orange.500" }}
               display={{ base: "none", md: "inline-flex" }}>
               <NextLink href="/campaign/new">Start a Campaign</NextLink>
-            </Button>
+            </Button> */}
+
+            
             {/* <Button
               fontSize={"md"}
               fontWeight={600}
