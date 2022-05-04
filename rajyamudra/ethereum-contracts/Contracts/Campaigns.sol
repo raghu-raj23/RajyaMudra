@@ -3,8 +3,6 @@ pragma solidity ^0.4.17;
 
 contract CampaignFactory {
     address[] public deployedCampaigns;
-
-    // function createCampaign(uint minimum,string name,string description,string image,uint target) public {
     function createCampaign(uint minimum,string name,string description,uint target) public {
         address newCampaign = new Campaign(minimum, msg.sender,name,description,target);
         deployedCampaigns.push(newCampaign);
@@ -31,7 +29,6 @@ contract Campaign {
   uint public minimunContribution;
   string public CampaignName;
   string public CampaignDescription;
-  // string public imageUrl;
   uint public targetToAchieve;
   address[] public contributers;
   mapping(address => bool) public approvers;
@@ -43,13 +40,11 @@ contract Campaign {
       _;
   }
 
-  // constructor(uint minimun, address creator,string name,string description,string image,uint target) public {
   constructor(uint minimun, address creator,string name,string description,uint target) public {
       manager = creator;
       minimunContribution = minimun;
       CampaignName=name;
       CampaignDescription=description;
-      // imageUrl=image;
       targetToAchieve=target;
   }
 
@@ -89,11 +84,9 @@ contract Campaign {
 
       requests[index].recipient.transfer(requests[index].value);
       requests[index].complete = true;
-
   }
 
 
-    // function getSummary() public view returns (uint,uint,uint,uint,address,string,string,string,uint) {
     function getSummary() public view returns (uint,uint,uint,uint,address,string,string,uint) {
         return(
             minimunContribution,
@@ -103,7 +96,6 @@ contract Campaign {
             manager,
             CampaignName,
             CampaignDescription,
-            // imageUrl,
             targetToAchieve
           );
     }

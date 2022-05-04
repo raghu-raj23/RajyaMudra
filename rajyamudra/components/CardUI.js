@@ -30,7 +30,6 @@ export const StarterCard = ({ title, text, icon }) => {
         align={"center"}
         justify={"center"}
         color={"white"}
-        rounded={"full"}
         bg={useColorModeValue("gray.300", "gray.800")}
         mb={1}>
         {icon}
@@ -56,7 +55,6 @@ export function CampaignCard({
         bg={useColorModeValue("white", "gray.700")}
         maxW={{ md: "sm" }}
         borderWidth="1px"
-        rounded="lg"
         shadow="lg"
         position="relative"
         alignItems="center"
@@ -84,8 +82,7 @@ export function CampaignCard({
               value={web3.utils.fromWei(balance, "ether")}
               max={web3.utils.fromWei(target, "ether")}
               color="orange.400"
-              thickness="12px">
-              </CircularProgress>
+              thickness="12px"></CircularProgress>
           </Flex>
           <Flex alignContent="center" py={2}>
             {" "}
@@ -162,7 +159,6 @@ export function StatsCard(props) {
       py={"5"}
       shadow={"sm"}
       border={"1px solid"}
-      rounded={"lg"}
       transition={"transform 0.3s ease"}
       _hover={{
         transform: "scale(1.1)",
